@@ -4,7 +4,7 @@ services:
   telegram-bot:
     build: .
     ports:
-      - "3000:3000"
+      - "2325:2325"
     environment:
       - NODE_ENV=production
     volumes:
