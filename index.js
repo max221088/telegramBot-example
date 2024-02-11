@@ -1,0 +1,24 @@
+const TelegramApi = require("node-telegram-bot-api");
+const token = "6708860117:AAF1ovuCGEFHnTwfAzCQ8LD9FJBkOFVuqy0";
+const url_app = "https://widget.cdek.ru/examples/example3-5-3.html";
+
+const bot = new TelegramApi(token, { polling: true });
+
+bot.on("message", async (msg) => {
+  console.log(msg);
+  const text = msg.text;
+  const chatId = msg.chat.id;
+  if (text === "/start") {
+    await bot.sendSticker(
+      chatId,
+      "https://tlgrm.ru/_/stickers/0fa/d9f/0fad9f6f-8455-41bc-a453-e8d389c2dadd/3.jpg"
+    );
+    await bot.sendMessage(chatId, `Добро пожаловать ${msg.from.first_name}!`, {
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: "Выберите адрес доставки", web_app: { url: url_app } }],
+        ],
+      },
+    });
+  }
+});
