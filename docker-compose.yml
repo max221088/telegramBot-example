@@ -8,6 +8,6 @@ services:
     environment:
       - NODE_ENV=production
     volumes:
-      - .:/usr/src/app
+      - ./src:/app/src
     env_file:
       - .env
