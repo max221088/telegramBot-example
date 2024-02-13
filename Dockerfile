@@ -1,13 +1,11 @@
 # Use official Node.js image as the base image
-# FROM node:latest AS development
-FROM node:18-alpine AS development
+FROM node:latest AS development
 ENV NODE_ENV development
 
 # Set the working directory inside the container
 WORKDIR /app
 
 # Copy package.json and package-lock.json files to the working directory
-# COPY package*.json ./
 COPY package.json .
 COPY package-lock.json .
 

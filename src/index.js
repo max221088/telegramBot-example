@@ -1,7 +1,7 @@
 require("dotenv").config();
 const TelegramApi = require("node-telegram-bot-api");
 const token = process.env.TELEGRAM_BOT_TOKEN;
-const url_app = "https://widget.cdek.ru/examples/example3-5-3.html";
+const url_app = "https://max9970.loca.lt/";
 
 const bot = new TelegramApi(token, { polling: true });
 
@@ -16,10 +16,12 @@ bot.on("message", async (msg) => {
     );
     await bot.sendMessage(chatId, `Добро пожаловать ${msg.from.first_name}!`, {
       reply_markup: {
-        inline_keyboard: [
+        keyboard: [
           [{ text: "Выберите адрес доставки", web_app: { url: url_app } }],
         ],
       },
     });
+  } else {
+    await bot.sendMessage(chatId, `${msg.web_app_data.data}`);
   }
 });
