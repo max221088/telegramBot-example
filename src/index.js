@@ -1,7 +1,7 @@
 require("dotenv").config();
 const TelegramApi = require("node-telegram-bot-api");
 const token = process.env.TELEGRAM_BOT_TOKEN;
-const url_app = "https://max9970.loca.lt/";
+const url_app = process.env.URL_APP;
 
 const bot = new TelegramApi(token, { polling: true });
 
