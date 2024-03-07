@@ -16,9 +16,7 @@ bot.on("message", async (msg) => {
     );
     await bot.sendMessage(chatId, `Добро пожаловать ${msg.from.first_name}!`, {
       reply_markup: {
-        keyboard: [
-          [{ text: "Выберите адрес доставки", web_app: { url: url_app } }],
-        ],
+        keyboard: [[{ text: "Открыть Buyergram", web_app: { url: url_app } }]],
       },
     });
   } else {
